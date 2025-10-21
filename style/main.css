@@ -67,7 +67,7 @@ h1.title small {
     top: -50px;
     opacity: 0; } }
 .scores-container {
-  float: right;
+  margin-bottom: 25px;
   text-align: right; }
 
 .score-container, .best-container {
@@ -525,6 +525,8 @@ hr {
   float: left;
   line-height: 42px;
   margin-bottom: 0;
+  font-size: 20px;
+  font-weight: bold;
 color: #fff; }
 
 .restart-button {
@@ -559,10 +561,13 @@ color: #fff; }
     width: 280px;
     margin: 0 auto; }
 
+  .scores-container {
+    margin-bottom: 10px;
+  }
   .score-container, .best-container {
     margin-top: 0;
     padding: 15px 10px;
-    min-width: 40px; }
+    min-width: 42%; }
 
   .heading {
     margin-bottom: 10px; }
@@ -571,7 +576,7 @@ color: #fff; }
     width: 55%;
     display: block;
     box-sizing: border-box;
-    line-height: 1.65; }
+  }
 
   .restart-button {
     width: 42%;
@@ -581,7 +586,7 @@ color: #fff; }
     margin-top: 2px; }
 
   .game-container {
-    margin-top: 16px;
+    margin-top: 20px;
     position: relative;
     padding: 10px;
     cursor: default;
