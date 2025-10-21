@@ -116,7 +116,7 @@
       <div class="game-message">
         <p></p>
         <div class="lower">
-          <a class="keep-playing-button">Keep going</a>
+	        <a class="keep-playing-button">Keep going</a>
           <a class="retry-button">Try again</a>
         </div>
       </div>
@@ -171,7 +171,8 @@
 
     <div class="era-description">
       <h2>Taylor Swift Eras</h2>
-      <div class="era-description-item">
+      <div class="eras-container" id="erasContainer">
+        <div class="era-description-item">
         <img src="style/1.jpg" alt="Young Taylor Swift with curly blonde hair wearing The Little Mermaid shirt">
         <h3>Debut Era - The Beginning</h3>
         <p>Meet the young Taylor Swift with her signature curly blonde hair and wide-eyed wonder! This adorable snapshot
@@ -197,6 +198,14 @@
           gently closed in peaceful contemplation. The romantic, vintage aesthetic perfectly embodies the emotional
           depth and storytelling mastery that defined this transformative period, where Taylor truly found her voice as
           both a songwriter and storyteller.</p>
+      </div>
+      
+      <!-- Toggle button after first 3 eras -->
+      <div class="toggle-button-container">
+        <button class="toggle-eras" onclick="toggleEras()" aria-label="Toggle all Taylor Swift eras">
+          <span id="toggle-text">Show More Eras</span>
+          <span class="toggle-icon">▼</span>
+        </button>
       </div>
       <div class="era-description-item">
         <img src="style/4.jpg"
@@ -293,7 +302,8 @@
           that defines this deeply personal album. This image invites listeners into Taylor's most intimate thoughts and
           feelings, representing a new chapter of artistic vulnerability and creative expression.</p>
       </div>
-    </div>
+      </div>
+  </div>
 
     <hr>
 
@@ -309,16 +319,71 @@
       </p>
     </footer>
 
-    <script src="js/bind_polyfill.js"></script>
-    <script src="js/classlist_polyfill.js"></script>
-    <script src="js/animframe_polyfill.js"></script>
-    <script src="js/keyboard_input_manager.js"></script>
-    <script src="js/html_actuator.js"></script>
-    <script src="js/grid.js"></script>
-    <script src="js/tile.js"></script>
-    <script src="js/local_storage_manager.js"></script>
-    <script src="js/game_manager.js"></script>
-    <script src="js/application.js"></script>
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+  
+  <script>
+    let isExpanded = false;
+    
+    // Toggle eras functionality
+    function toggleEras() {
+      const container = document.getElementById('erasContainer');
+      const toggleText = document.getElementById('toggle-text');
+      const toggleIcon = document.querySelector('.toggle-icon');
+      const eraItems = container.querySelectorAll('.era-description-item');
+      
+      if (!isExpanded) {
+        // Show all eras
+        container.style.display = 'block';
+        eraItems.forEach((item) => {
+          item.style.display = 'block';
+        });
+        toggleText.textContent = 'Hide All Eras';
+        toggleIcon.textContent = '▲';
+        container.style.animation = 'fadeIn 0.3s ease-in';
+        isExpanded = true;
+      } else {
+        // Hide additional eras (keep first 3 visible)
+        const eraItems = container.querySelectorAll('.era-description-item');
+        eraItems.forEach((item, index) => {
+          if (index < 3) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        toggleText.textContent = 'Show More Eras';
+        toggleIcon.textContent = '▼';
+        isExpanded = false;
+      }
+    }
+    
+    // Initialize with first 3 eras visible
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('erasContainer');
+      const eraItems = container.querySelectorAll('.era-description-item');
+      
+      // Show first 3 eras by default
+      eraItems.forEach((item, index) => {
+        if (index < 3) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Show container initially with first 3 eras
+      container.style.display = 'block';
+    });
+  </script>
 </body>
 
 </html>

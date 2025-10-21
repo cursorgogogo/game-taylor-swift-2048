@@ -545,6 +545,115 @@ color: #fff; }
 .game-explanation {
   margin-top: 30px; }
 
+/* Era Description Styles */
+.era-description {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.era-description h2 {
+  color: #C974A5;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.toggle-button-container {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.toggle-eras {
+  display: inline-block;
+  margin: 0 auto;
+  background: #C974A5;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggle-eras:hover {
+  background: #B85A8A;
+  transform: translateY(-2px);
+}
+
+.toggle-eras:active {
+  transform: translateY(0);
+}
+
+.toggle-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.eras-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.era-description-item {
+  text-align: center;
+}
+
+.era-description-item img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  margin-top: 15px;
+}
+
+.era-description-item h3 {
+  color: #C974A5;
+  font-size: 18px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.era-description-item p {
+  color: #333;
+  line-height: 1.5;
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .eras-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .era-description {
+    padding: 2px 15px;
+  }
+  
+  .toggle-eras {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
 @media screen and (max-width: 520px) {
   html, body {
     font-size: 16px; }
